@@ -1,0 +1,57 @@
+(using_atk_version): 1.0
+(installer):
+    current_version: 3.7.3
+    (versions_folder): versions
+    (install_command): ruby install.rb
+    (dependencies): {}
+
+(project):
+    bundle:
+        - info.yaml
+        - current_version/**/*
+        - LICENSE
+        - README.md
+    
+    commands: &commands
+        build: !language/ruby |
+            require 'atk_toolbox'
+            current_version = Info['(installer)']['current_version']
+            versions_folder = Info['(installer)']['(versions_folder)']
+            # create a folder for the version
+            destination = File.join(versions_folder, current_version)
+            Dir.mkdir(destination)
+            # get all the things to copy
+            files_to_copy = []
+            for each in Info['(project)']['bundle']
+                files_to_copy << Dir.glob(each)
+            end
+            # copy all of them
+            for each in files_to_copy
+                FileUtils.cp(each, destination)
+            end
+        
+    dependencies: &dependencies
+        atk: 0.0.1
+        {gem: 2.7.3}:
+            zip: 2.0.2
+    
+    (advanced_setup):
+        (put_new_dependencies_under): [ '(project)', 'basic_info', 'dependencies' ]
+        # caveats for a specific OS
+        when(--os is 'mac'):
+            (project_commands):
+                <<: *commands
+            (dependencies):
+                <<: *dependencies
+            
+        when(--os is 'windows'):
+            (project_commands):
+                <<: *commands
+            (dependencies):
+                <<: *dependencies
+                
+        when(--os is 'linux'):
+            (project_commands):
+                <<: *commands
+            (dependencies):
+                <<: *dependencies
