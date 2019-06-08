@@ -19,6 +19,8 @@
             versions_folder = Info['(installer)']['(versions_folder)']
             # create a folder for the version
             destination = File.join(versions_folder, current_version)
+            FileUtils.rm_rf(destination)
+            FileUtils.rm_rf(destination+".zip")
             Dir.mkdir(destination)
             # get all the things to copy
             files_to_copy = []
@@ -29,8 +31,7 @@
             for each in files_to_copy
                 FileUtils.cp(each, destination)
             end
-            
-        install: 
+            zip(destination)
         
     dependencies: &dependencies
         atk: 0.0.1
