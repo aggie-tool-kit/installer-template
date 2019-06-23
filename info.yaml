@@ -1,7 +1,5 @@
 (using_atk_version): 1.0
 (installer):
-    current_version: 3.7.3
-    (versions_folder): versions
     (install_command): ruby install.rb
     (dependencies): {}
 
