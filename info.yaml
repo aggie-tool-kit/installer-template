@@ -1,6 +1,6 @@
 (using_atk_version): 1.0
 (installer):
-    (install_command): echo hello # for testing
+    (install_command): ruby install.rb
     (dependencies): {}
 
 (project):
