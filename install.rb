@@ -18,8 +18,8 @@ version_they_want_me_to_install = Console.args[0]
 #     FS.copy(from:file, to:newplace, new_name: nil)
 #     FS.move(from:file, to:newplace, new_name: nil)
 #     FS.delete(file_or_folder) # caution will recursively delete a folder
-#     FS.read(file_or_folder) # returns a string
-#     FS.write(file_or_folder, to: filepath) # saves a string to a file, note: it overwrites existing files and creates paths if they dont exist yet
+#     FS.read(file_or_folder) # returns a string, returns nil if file doesn't exist
+#     FS.write(string, to: filepath) # saves a string to a file, note: it overwrites existing files and creates paths if they dont exist yet
 #     FS.home # the home directory
 #     FS.username # the persons username
 #     FS.exists?(file_or_folder)
