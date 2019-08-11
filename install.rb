@@ -6,7 +6,7 @@ version_they_want_me_to_install = Console.args[0]
 if OS.is?('mac')
 
     puts "Now I can do my install stuff for mac here"
-    -"which python3" || puts "you don't have python! :O "
+    -"which python3" || puts("you don't have python! :O ")
 
 elsif OS.is?('linux')
 
