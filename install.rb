@@ -66,6 +66,10 @@ elsif OS.is?('linux')
         puts "cool! me too"
         log "(this message only gets printed if Console.verbose == true) I think linux is one of the greatest projects of the modern era, so much of the world runs on linux"
     end
+    
+    if OS.is?('debian')
+        answer = Console.yes?("Are you running Ubuntu? I bet you're running Ubuntu")
+    end
 
 elsif OS.is?('windows')
 
