@@ -37,6 +37,8 @@ require 'atk_toolbox'
 #         # returns the PID of that process
 #     system("echo", "hello", "world")
 #         # same as before, but now the arguments don't need to be escaped
+#     system("echo", "hello", "world", out: File::NULL, err: File::NULL )
+#         # same as before, but now there is no output shown to the user
 #     -"echo hello"
 #         # returns false if the command fails
 #         # sends stdout and stderr straight to the user
