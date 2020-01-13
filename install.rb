@@ -1,7 +1,5 @@
 require 'atk_toolbox'
 
-version_they_want_me_to_install = Console.args[0]
-
 # for interacting with the user, use the Console object
 #    answer = Console.yes?("do you like linux")
 #    answer = Console.select("Who is your favorite?", ["Scorpion", "Kano", "Jax"])
@@ -39,6 +37,8 @@ version_they_want_me_to_install = Console.args[0]
 #         # returns the PID of that process
 #     system("echo", "hello", "world")
 #         # same as before, but now the arguments don't need to be escaped
+#     system("echo", "hello", "world", out: File::NULL, err: File::NULL )
+#         # same as before, but now there is no output shown to the user
 #     -"echo hello"
 #         # returns false if the command fails
 #         # sends stdout and stderr straight to the user
@@ -65,10 +65,6 @@ elsif OS.is?('linux')
     if answer
         puts "cool! me too"
         log "(this message only gets printed if Console.verbose == true) I think linux is one of the greatest projects of the modern era, so much of the world runs on linux"
-    end
-    
-    if OS.is?('debian')
-        answer = Console.yes?("Are you running Ubuntu? I bet you're running Ubuntu")
     end
 
 elsif OS.is?('windows')

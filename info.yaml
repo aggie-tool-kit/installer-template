@@ -1,7 +1,6 @@
 (using_atk_version): 1.0
-(installer):
-    (dependencies): {}
-    (commands):
+(package):
+    (actions):
         (run): ruby run.rb
         (install): ruby install.rb
         (version): ruby version.rb
